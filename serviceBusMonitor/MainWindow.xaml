@@ -1,0 +1,210 @@
+﻿<Window x:Class="serviceBusMonitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:serviceBusMonitor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="765.5" Width="931.375"
+        >
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2">
+
+            <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TabControl.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabControl.RenderTransform>
+                <TabItem Header="Queues" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                    <Grid Background="#FFE5E5E5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListView x:Name="ActiveMessageListView" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" 
+                               >
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Style.Setters>
+                                        <Setter Property="Background" Value="{Binding BackgroundA}" />
+                                        <Setter Property="Foreground" Value="Black" />
+                                        <!--<EventSetter Event="MouseDoubleClick" Handler="" />-->
+                                    </Style.Setters>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Worker"  Width="80" DisplayMemberBinding="{Binding Worker, AsyncState=true}"/>
+                                    <GridViewColumn Header="Name"  Width="150" DisplayMemberBinding="{Binding Message, AsyncState=true}"/>
+                                    <GridViewColumn Header="Active"  Width="auto" DisplayMemberBinding="{Binding Active, AsyncState=true}"/>
+                                    <GridViewColumn Header="AvgPerFive"  Width="auto" DisplayMemberBinding="{Binding Avg, AsyncState=true}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <ListView x:Name="DeadletterView" Grid.Column="2" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" 
+                                >
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Style.Setters>
+                                        <Setter Property="Background" Value="{Binding BackgroundD}" />
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <!--<EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick" />-->
+                                    </Style.Setters>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Worker"  Width="80" DisplayMemberBinding="{Binding Worker, AsyncState=true}"/>
+                                    <GridViewColumn Header="Name"  Width="150" DisplayMemberBinding="{Binding Message, AsyncState=true}"/>
+                                    <GridViewColumn Header="Deadletter" Width="60" DisplayMemberBinding="{Binding DeadLetter, AsyncState=true}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <Grid Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TabControl HorizontalAlignment="Stretch"  Grid.Column="1"  Grid.ColumnSpan="1" VerticalAlignment="Stretch" >
+                <TabItem Header="LastPrice" FontSize="10">
+                    <Grid Background="#FFE5E5E5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListView Name="StreamingListView" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" 
+                            GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Style.Setters>
+                                        <Setter Property="Background" Value="{Binding Background}" />
+                                        <Setter Property="Foreground" Value="{Binding Foreground}" />
+                                    </Style.Setters>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+
+                                <GridView>
+                                    <GridView.Columns>
+                                        <GridViewColumn Header=" CRYPTO "   DisplayMemberBinding="{Binding ShortName, AsyncState=true}"/>
+                                        <GridViewColumn Header=" LastPrice "   DisplayMemberBinding="{Binding LastPrice, AsyncState=true}"/>
+                                        <GridViewColumn Header=" DelayLP "   DisplayMemberBinding="{Binding DelayLP, AsyncState=true}"/>
+                                        <GridViewColumn Header="--TS--"   DisplayMemberBinding="{Binding TradingStatus, AsyncState=true}"/>
+                                        <GridViewColumn Header=" DelayOB "   DisplayMemberBinding="{Binding DelayOB, AsyncState=true}"/>
+
+                                    </GridView.Columns>
+
+                                </GridView>
+
+                            </ListView.View>
+
+                        </ListView>
+
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="CheckPrice" FontSize="10">
+                    <Grid Background="#FFE5E5E5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListView Name="CheckPriceView" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" 
+                            GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Style.Setters>
+
+                                    </Style.Setters>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+                                <GridView>
+                                    <GridView.Columns>
+                                        <GridViewColumn Header="ShortName" Width="70"/>
+                                        <GridViewColumn Header="Date" Width="70"/>
+                                        <GridViewColumn Header="Result" Width="70"/>
+                                    </GridView.Columns>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+
+
+
+            </TabControl>
+
+
+            <Grid Grid.Column="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions >
+                <!--<ListView x:Name="TopicsView" Grid.Row="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" 
+                                >
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Style.Setters>
+                                <Setter Property="Background" Value="{Binding BackgroundD}" />
+                                <Setter Property="Foreground" Value="Black"/>
+                                -->
+                <!--<EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick" />-->
+                <!--
+                            </Style.Setters>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Topic"  Width="300" DisplayMemberBinding="{Binding Worker, AsyncState=true}"/>
+                            <GridViewColumn Header="ActiveTotal"  Width="150" DisplayMemberBinding="{Binding Message, AsyncState=true}"/>
+                            <GridViewColumn Header="DeadletterTotal" Width="150" DisplayMemberBinding="{Binding DeadLetter, AsyncState=true}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>-->
+
+                <ListView x:Name="TopicSubscriptionsView" Grid.Row="2" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" 
+                                >
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Style.Setters>
+                                <Setter Property="Background" Value="{Binding BackgroundD}" />
+                                <Setter Property="Foreground" Value="Black"/>
+                                <!--<EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick" />-->
+                            </Style.Setters>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Topic"  Width="200" DisplayMemberBinding="{Binding Path, AsyncState=true}"/>
+                            <GridViewColumn Header="Name"  Width="200" DisplayMemberBinding="{Binding Name, AsyncState=true}"/>
+                            <GridViewColumn Header="Active"  Width="150" DisplayMemberBinding="{Binding Active, AsyncState=true}"/>
+                            <GridViewColumn Header="Deadletter" Width="150" DisplayMemberBinding="{Binding DeadLetter, AsyncState=true}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </Grid>
+
+
+
+
+            <Button x:Name="ChoiceProd" Content="Production" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="ChoiceProd_Click" />
+            <Button x:Name="ChoiceStage" Content="Staging" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="ChoiceStage_Click" />
+            <Label x:Name="xState" Content="State" HorizontalAlignment="Left" Margin="211,10,0,0" VerticalAlignment="Top" Height="38" Width="62"/>
+            <Label x:Name="xWS" Content="WS url" HorizontalAlignment="Left" Margin="332,12,0,0" VerticalAlignment="Top" Height="38" Width="204"/>
+
+
+            <!--<RadioButton x:Name="IsStage" Content="Stage" HorizontalAlignment="Left" Margin="402,16,0,0" VerticalAlignment="Top" GroupName="Orientation" Click="IsStage_Click" />
+            <RadioButton x:Name="IsProd" Content="Prod" IsChecked="True" HorizontalAlignment="Left" Margin="456,16,0,0" VerticalAlignment="Top" GroupName="Orientation" Click="IsProd_Click"/>
+            <Button x:Name="startBtn" Content="start" HorizontalAlignment="Left" Height="30" Margin="0,1,0,0" VerticalAlignment="Top" Width="73" Click="StartBtn_Click"/>
+            <Button x:Name="stopBtn" Content="Button" HorizontalAlignment="Left" Margin="78,1,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Stop_Click"/>-->
+        </Grid>
+    </Grid>
+</Window>

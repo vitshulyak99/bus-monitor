@@ -1,0 +1,4 @@
+[{"connection":"Endpoint=sb://prod-quantfury.servicebus.windows.net/;SharedAccessKeyName=Monitoring;SharedAccessKey=+ZoySpKdVvocVT1gc1huvGAct8NcTB2up1zE64C6vis="},
+{"connection":"Endpoint=sb://prod-quantfury-streaming.servicebus.windows.net/;SharedAccessKeyName=Monitoring;SharedAccessKey=fQtOnOIsO65Hj5nEo5lfFGrP6ynyQty0VV0g4CR91qg="},
+{"connection":"Endpoint=sb://prod-quantfury-autotrading.servicebus.windows.net/;SharedAccessKeyName=Monitoring;SharedAccessKey=45nV5S4KtNRIU4vd5ztRC1sQcicr6y+EmVD8uV2NCBA="},
+{"connection":"Endpoint=sb://prod-quantfury-pricechanged.servicebus.windows.net/;SharedAccessKeyName=Monitoring;SharedAccessKey=DsuPluhbx7I8YGcE+jgLKC1Oo7E4Lg8kk2+7CZ+jvv4="}]

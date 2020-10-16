@@ -1,0 +1,30 @@
+{ 
+   "production":[ 
+      "Endpoint=sb://prod-quantfury-premium.servicebus.windows.net/;SharedAccessKeyName=Supports;SharedAccessKey=U9/vvtj3YikxC3sKfALpuDqGBzXNLCycU6Ue+C0kows="
+   ],
+   "staging":[ 
+      "Endpoint=sb://stag-quantfury-premium.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=T62KcZdADWqHdBhIKHEXQL9o3kVHlY9Sw65SKNmKW10="
+   ],
+   "critical":[ 
+      "executelimitordermessage",
+      "executemargincallmessage",
+      "limitorderchangedmessage",
+      "margincalltriggeredmessage",
+      "positionchangedmessage",
+      "updateopensessionscachemessage",
+      "closepositionmessage",
+      "checkmargincallmessage",
+      "verifysessionmargincallmessage",
+      "streamingprice",
+      "calculatepositionspnlsmessage",
+	  "priceupdatemessage"
+   ],
+   "major":[ 
+      "pricechangedmessage",
+      "storebarmessage",
+      "chartcheckmessage",
+      "chartcheckmessage",
+      "cleanopensessioncachemessage",
+	  "offmarketcachedprice"
+   ]
+}

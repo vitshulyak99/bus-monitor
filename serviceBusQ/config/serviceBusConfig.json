@@ -1,0 +1,33 @@
+{ 
+   "production":[ 
+      "Endpoint=sb://prod-#-premium.servicebus.windows.net/;SharedAccessKeyName=Supports;SharedAccessKey=#"
+   ],
+   "staging":[ 
+      "Endpoint=sb://stag-#-premium.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=#"
+   ],
+   "critical":[ 
+      "executelimitordermessage",
+      "executemargincallmessage",
+      "limitorderchangedmessage",
+      "margincalltriggeredmessage",
+      "positionchangedmessage",
+      "updateopensessionscachemessage",
+      "closepositionmessage",
+      "checkmargincallmessage",
+      "verifysessionmargincallmessage",
+      "streamingprice",
+      "calculatepositionspnlsmessage",
+	  "priceupdatemessage"
+   ],
+  "major": [
+    "pricechangedmessage",
+    "storebarmessage",
+    "chartcheckmessage",
+    "chartcheckmessage",
+    "cleanopensessioncachemessage",
+    "offmarketcachedprice"
+  ],
+  "topics": [
+    "v7-topic-#.tradingplatform.business.messaging.priceupdates.priceupdatemessage"
+  ]
+}

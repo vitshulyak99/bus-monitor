@@ -1,0 +1,89 @@
+[
+  {
+    "BaseCurrency": "BTC",
+    "InstrumentCurrencys": [
+      "EUR",
+      "USD",
+      "USDT"
+    ]
+  },
+  {
+    "BaseCurrency": "EOS",
+    "InstrumentCurrencys": [
+      "EUR",
+      "USD",
+      "USDT"
+    ]
+  },
+  {
+    "BaseCurrency": "ETH",
+    "InstrumentCurrencys": [
+      "EUR",
+      "USD",
+      "USDT"
+    ]
+  },
+  {
+    "BaseCurrency": "LTC",
+    "InstrumentCurrencys": [
+      "USD",
+      "USDT"
+    ]
+  },
+  {
+    "BaseCurrency": "DASH",
+    "InstrumentCurrencys": [
+      "USD",
+      "USDT"
+    ]
+  },
+  {
+    "BaseCurrency": "ETC",
+    "InstrumentCurrencys": [
+      "USD",
+      "USDT"
+    ]
+  },
+  {
+    "BaseCurrency": "XMR",
+    "InstrumentCurrencys": [
+      "USD",
+      "USDT"
+    ]
+  },
+  {
+    "BaseCurrency": "XRP",
+    "InstrumentCurrencys": [
+      "USD",
+      "USDT"
+    ]
+  },
+  {
+    "BaseCurrency": "QTUM",
+    "InstrumentCurrencys": [
+      "USD",
+      "USDT"
+    ]
+  },
+  {
+    "BaseCurrency": "NEO",
+    "InstrumentCurrencys": [
+      "USD",
+      "USDT"
+    ]
+  },
+  {
+    "BaseCurrency": "ZEC",
+    "InstrumentCurrencys": [
+      "USD",
+      "USDT"
+    ]
+  },
+  {
+    "BaseCurrency": "IOTA",
+    "InstrumentCurrencys": [
+      "USD",
+      "USDT"
+    ]
+  }
+]
